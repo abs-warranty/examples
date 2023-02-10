@@ -17,7 +17,7 @@ async function createRegistration() {
   // Execute web request to `POST /registrations` endpoint.
   const registration = await axios({
     method: 'POST',
-    url: `${process.env.TIRE_PROTECTION_URI}/registrations`,
+    url: `${process.env.TIRE_PROTECTION_API_URI}/registrations`,
     headers: {
       // Use JWT Authorization Token as header
       Authorization: `${generateAuthToken()}`,
@@ -35,7 +35,7 @@ async function createRegistration() {
  */
 async function listRegistrations() {
   // Execute web request to `GET /registrations` endpoint
-  const registrations = await axios.get(`${process.env.TIRE_PROTECTION_URI}/registrations`, {
+  const registrations = await axios.get(`${process.env.TIRE_PROTECTION_API_URI}/registrations`, {
     headers: {
       // Use JWT Authorization Token as header
       Authorization: generateAuthToken(),
@@ -53,7 +53,7 @@ async function getRegistration(id) {
   // Execute web request to `GET /registrations/{id}` endpoint
   const registration = await axios({
     method: 'GET',
-    url: `${process.env.TIRE_PROTECTION_URI}/registrations/${id}`,
+    url: `${process.env.TIRE_PROTECTION_API_URI}/registrations/${id}`,
     headers: {
       Authorization: generateAuthToken(),
     },
@@ -70,7 +70,7 @@ async function cancelRegistration(id) {
   // Execute web request to `PATCH /registrations/{id}` endpoint
   const cancelledRegistration = await axios({
     method: 'PATCH',
-    url: `${process.env.TIRE_PROTECTION_URI}/registrations/${id}`,
+    url: `${process.env.TIRE_PROTECTION_API_URI}/registrations/${id}`,
     headers: {
       Authorization: generateAuthToken(),
     },
