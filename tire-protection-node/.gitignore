@@ -19,3 +19,6 @@ tire-protection-key*
 
 # Intellij
 .idea*
+
+# VSCode
+.vscode
