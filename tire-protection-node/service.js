@@ -25,7 +25,7 @@ async function createRegistration() {
     // Attach JSON registration as request body
     data: exampleRegistration,
   })
-  console.log(registration.data)
+  prettyLog(registration.data)
 }
 
 /**
@@ -41,7 +41,7 @@ async function listRegistrations() {
       Authorization: generateAuthToken(),
     },
   })
-  console.log(JSON.stringify(registrations.data, null, 2))
+  prettyLog(registrations.data)
 }
 
 /**
@@ -58,7 +58,7 @@ async function getRegistration(id) {
       Authorization: generateAuthToken(),
     },
   })
-  console.log(registration.data)
+  prettyLog(registration.data)
 }
 
 /**
@@ -79,6 +79,13 @@ async function cancelRegistration(id) {
     },
   })
   if (cancelledRegistration.status === 204) console.log('Registration cancelled successfully.')
+}
+
+/**
+ * Pretty log json object
+ */
+function prettyLog(object) {
+  return console.log(JSON.stringify(object, null, 2))
 }
 
 module.exports = {
